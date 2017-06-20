@@ -1,0 +1,198 @@
+html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+
+/**          
+====================================================================
+	Contact Section
+====================================================================
+
+***/
+
+.contact-section{
+	position:relative;
+	padding:60px 0px;
+	background:#ffffff;	
+}
+
+.contact-section .map-area{
+	position:relative;
+	height:350px;
+	width:100%;
+	margin-bottom:30px;
+	border:1px solid #e13f30;
+	border-radius:10px 10px 0px 0px;
+	-webkit-border-radius:10px 10px 0px 0px;
+	-ms-border-radius:10px 10px 0px 0px;
+}
+
+.contact-section .contact-info{
+	position:relative;
+	font-size:16px;
+	margin-bottom:30px;
+}
+
+.contact-section .contact-info h3{
+	font-size:32px;
+	margin-bottom:20px;	
+}
+
+.contact-section .contact-info .text{
+	position:relative;
+	font-size:15px;
+	font-family:'Open Sans',sans-serif;
+	margin-bottom:10px;
+	color:#7f7f7f;
+}
+
+.contact-section .contact-info li{
+	position:relative;
+	margin-bottom:8px;
+	line-height:1.8em;
+	color:#7f7f7f;	
+}
+
+.contact-section .contact-info li strong{
+	position:relative;
+	padding-right:10px;
+	font-weight:500;
+	color:#292929;	
+}
+
+.contact-section .contact-info a{
+	color:#10bcf4;
+	transition:all 300ms ease-in;
+	-webkit-transition:all 300ms ease-in;
+	-ms-transition:all 300ms ease-in;
+	-o-transition:all 300ms ease-in;
+	-moz-transition:all 300ms ease-in;	
+}
+
+.contact-section .contact-info a:hover{
+	color:#e13f30;	
+}
+
+.contact-section .contact-form{
+	position:relative;	
+}
+
+.contact-section .contact-form .form-group{
+	position:relative;
+	display:block;
+	padding:0px 0px;
+	margin-bottom:16px;	
+}
+
+.contact-section .contact-form .form-group .form-label{
+	display:block;
+	margin-bottom:12px;
+	font-weight:600;	
+}
+
+.contact-section .contact-form input[type="text"],
+.contact-section .contact-form input[type="password"],
+.contact-section .contact-form input[type="email"],
+.contact-section .contact-form input[type="tel"],
+.contact-section .contact-form input[type="number"],
+.contact-section .contact-form input[type="file"],
+.contact-section .contact-form input[type="url"],
+.contact-section .contact-form select,
+.contact-section .contact-form textarea{
+	position:relative;
+	display:block;
+	width:100%;
+	line-height:24px;
+	padding:12px 20px;
+	font-size:15px;
+	color:#202020;
+	border:1px solid #dddddd;
+	background:#ffffff;
+	transition:all 0.5s ease;
+	-webkit-transition:all 0.5s ease;
+	-ms-transition:all 0.5s ease;
+	-o-transition:all 0.5s ease;
+	-moz-transition:all 0.5s ease;
+}
+
+.contact-section .contact-form input[type="text"]:focus,
+.contact-section .contact-form input[type="password"]:focus,
+.contact-section .contact-form input[type="email"]:focus,
+.contact-section .contact-form input[type="tel"]:focus,
+.contact-section .contact-form input[type="number"]:focus,
+.contact-section .contact-form input[type="file"]:focus,
+.contact-section .contact-form input[type="url"]:focus,
+.contact-section .contact-form select:focus,
+.contact-section .contact-form textarea:focus{
+	border-color:#292929;	
+}
+
+.contact-section .contact-form input.error,
+.contact-section .contact-form textarea.error{
+	border-color:#ff0000 !important;
+	background:rgba(252,90,27,0.05);
+}
+
+.contact-section .contact-form label.error{
+	display:none !important;	
+}
+
+.contact-section .contact-form textarea{
+	height:272px;
+	resize:none;
+	margin-bottom:20px;	
+}
+
+.contact-section .contact-form button{
+	background:#e13f30;	
+}
+
+.contact-section .contact-form button:before{
+	background:#292929;	
+}
