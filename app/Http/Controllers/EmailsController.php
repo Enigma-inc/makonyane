@@ -46,9 +46,9 @@ class EmailsController extends Controller
     public function store(Request $request, User $user)
     {
         $this->validate($request, [
-        'email' => 'required|email',
+        'email' => 'required|unique:emails',
         'subject' => 'required',
-        'message' => 'required|max:255',
+        'message' => 'required',
         ]);
 
       $email = Email::create([

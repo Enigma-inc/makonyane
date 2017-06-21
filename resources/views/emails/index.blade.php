@@ -15,9 +15,12 @@
                         <div class="col-md-4 margin-top-5">
                             <div class="panel emails-index panel-default">
                                 <div class="panel-heading">
-                                    <div class="header"><strong>To: </strong>{{$email->email}}</div>
+                                    <div class="header">
+                                        <div><strong>To: </strong>{{ $email->email }}</div>
+                                        <div><strong>Subject: </strong>{{ $email->subject }}</div>                                        
+                                    </div>
                                 </div>
-                                <div id="email" class="panel-body">
+                                <div class="panel-body email">
                                     <p>{{ $email->message }}</p>
                                 </div>
                             </div>
@@ -38,8 +41,8 @@
 <script>
     //Add slim scroll
       $(function(){
-            $('#email').slimScroll({
-                height: '153px',
+            $('.email').slimScroll({
+                height: '145px',
                 color: '#e13f30',
                 railVisible: true,
                 alwaysVisible: true
