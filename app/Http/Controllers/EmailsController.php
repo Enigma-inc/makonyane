@@ -22,7 +22,7 @@ class EmailsController extends Controller
      */
     public function index()
     {
-        $emails = Email::latest()->where('user_id', Auth::user()->id)->paginate(3);
+        $emails = Email::latest()->where('user_id', Auth::user()->id)->paginate(6);
 
         return view('emails.index', compact('emails'));
     }

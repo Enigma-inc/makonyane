@@ -68,5 +68,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+
+    @yield('scripts')
 </body>
 </html>

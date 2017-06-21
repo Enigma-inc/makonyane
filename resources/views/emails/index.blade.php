@@ -13,11 +13,11 @@
                     <div class="panel-body">
                         @foreach($emails as $email)
                         <div class="col-md-4 margin-top-5">
-                            <div class="panel panel-default">
+                            <div class="panel emails-index panel-default">
                                 <div class="panel-heading">
                                     <div class="header"><strong>To: </strong>{{$email->email}}</div>
                                 </div>
-                                <div class="panel-body">
+                                <div id="email" class="panel-body">
                                     <p>{{ $email->message }}</p>
                                 </div>
                             </div>
@@ -32,4 +32,18 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    //Add slim scroll
+      $(function(){
+            $('#email').slimScroll({
+                height: '153px',
+                color: '#e13f30',
+                railVisible: true,
+                alwaysVisible: true
+            });
+        });        
+</script>
 @endsection
