@@ -20,8 +20,8 @@ class EmailSent extends Mailable
      */
     public function __construct($user, $email)
     {
-        $this->user=$user;
         $this->email=$email;
+        $this->user=$user;
     }
 
     /**
@@ -31,9 +31,7 @@ class EmailSent extends Mailable
      */
     public function build()
     {
-        return $this->from($this->user->email)
-                    ->subject($this->email->subject)
-                    ->markdown('emails.email-sent')
-                    ->text('emails.email-sent_plain');
+        return $this->subject($this->email->subject)
+                    ->text('emails.email-sent');
     }
 }

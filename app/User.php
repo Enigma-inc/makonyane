@@ -15,8 +15,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 
     ];
+
+    protected  $guarded =[];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -31,4 +34,9 @@ class User extends Authenticatable
     {
         return $this->email;
     }
+
+     public function sentEmails()
+   {
+       return $this->hasMany(Email::class);
+   }
 }

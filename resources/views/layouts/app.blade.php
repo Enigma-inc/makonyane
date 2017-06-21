@@ -20,7 +20,7 @@
                 <div class="navbar-header">
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand">
+                    <a class="navbar-brand" href="/">
                         Nulistice Mail App
                     </a>
                 </div>

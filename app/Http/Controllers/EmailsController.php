@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Email;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Session;
+use App\Mail\EmailSent;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 
 class EmailsController extends Controller
@@ -21,7 +22,7 @@ class EmailsController extends Controller
      */
     public function index()
     {
-        $emails = Email::latest()->paginate(5);
+        $emails = Email::latest()->where('user_id', Auth::user()->id)->paginate(4);
 
         return view('emails.index', compact('emails'));
     }
@@ -54,14 +55,12 @@ class EmailsController extends Controller
             'email' => request('email'),
             'subject' => request('subject'),
             'message' => request('message'),
-            'user_id'=> \Auth::User()->id
+            'user_id'=> Auth::User()->id
         ]);
         
-        Mail::to($request->email)
+        Mail::to($request->user()->email)
               ->bcc(['address'=>'neo@enigma.co.ls'])
-              ->send(new EmailSent($email));
-
-           $request->session()->flash('flash', "Your emai has been send successfully");
+              ->send(new EmailSent($user, $email));
            return redirect()->back();
     }
 
