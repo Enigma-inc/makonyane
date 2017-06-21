@@ -58,10 +58,9 @@ class EmailsController extends Controller
             'user_id'=> Auth::User()->id
         ]);
         
-        Mail::to($request->user()->email)
-              ->bcc(['address'=>'neo@enigma.co.ls'])
-              ->send(new EmailSent($user, $email));
-           return redirect()->back();
+        Mail::to($email)
+            ->send(new EmailSent($user, $email));
+            return redirect()->back();
     }
 
     /**
