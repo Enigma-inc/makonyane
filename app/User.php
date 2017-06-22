@@ -30,12 +30,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function email()
-    {
-        return $this->email;
-    }
-
-     public function sentEmails()
+     public function emails()
    {
        return $this->hasMany(Email::class);
    }

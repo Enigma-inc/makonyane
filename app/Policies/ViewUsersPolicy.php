@@ -3,7 +3,6 @@
 namespace App\Policies;
 
 use App\User;
-use App\Email;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ViewUsersPolicy
@@ -17,9 +16,9 @@ class ViewUsersPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function view(User $user, People $people)
+    public function view(User $user, User $user)
     {
-            return $people->id == $user->is_admin;
+            return $user->id == $user->is_admin;
     }
 
     /**
