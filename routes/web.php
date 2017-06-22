@@ -19,6 +19,6 @@ Route::get('/users', 'PeopleController@index')->name('people');
 Route::get('/send-email', 'EmailsController@create')->name('email.create');
 Route::post('/send-email', 'EmailsController@store')->name('email.store');
 
-Route::get('/users/{id}', 'PeopleController@show')->name('users');
+Route::get('/users/{id}', 'PeopleController@show')->name('people.single');
 
 

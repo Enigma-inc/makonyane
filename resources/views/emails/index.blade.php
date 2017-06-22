@@ -12,7 +12,7 @@
                     </div>
                     <div class="panel-body">
                         @foreach($emails as $email)
-                        <div class="col-md-4 margin-top-5">
+                        <div class="col-md-6 margin-top-5">
                             <div class="panel emails-index panel-default">
                                 <div class="panel-heading">
                                     <div class="header">

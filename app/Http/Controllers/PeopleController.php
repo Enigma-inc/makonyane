@@ -18,4 +18,9 @@ class PeopleController extends Controller
 
         return view('emails.admin-panel', compact('people'));
     }
+
+    public function show()
+    {
+        
+    }
 }

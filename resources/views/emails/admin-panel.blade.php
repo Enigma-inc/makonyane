@@ -8,11 +8,12 @@
         <div class="col-md-12"> 
             <div class="panel panel-default">
                     <div class="panel-body">
+                    @can('view', $people)
                         @foreach($people as $user)
                         <div class="col-md-4 margin-top-5">
                             <div class="panel emails-index panel-default">
                                 <div class="panel-heading">
-                                    <div class="header"></strong>{{ $user->name }}</div>
+                                    <a href=""><div class="header"></strong>{{ $user->name }}</div></a>
                                 </div>
                                 <div class="panel-body">
                                     <p>{{ $user->email }}</p>
@@ -24,6 +25,12 @@
                     <div class="text-center">
                         {{ $people->links() }}
                     </div>
+                    @endcan
+                    @cannot('view', $people)
+                        <script>
+                            window.location = "/"
+                        </script>
+                    @endcannot
             </div>
             
         </div>
