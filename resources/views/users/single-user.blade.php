@@ -5,7 +5,7 @@
         <div class="col-md-12"> 
             <div class="panel panel-default">
                     <div class="panel-body">
-                    @if(Gate::allows('view-users', $user))
+                    @can('view', $user)
                         @foreach($emails as $email)
                         <div class="col-md-4 margin-top-5">
                             <div class="panel emails-index panel-default">
@@ -21,12 +21,14 @@
                     </div>
                     <div class="text-center">
                         {{ $emails->links() }}
-                    </div>       
-                    @elseif(Gate::denies('view-users', $user))
+                    </div>
+                    @endcan   
+                    @cannot('view', $user)
                         <script>
                             window.location = "/"
                         </script>
-                    @endif            
+                    @endcannot  
+
             </div>
         </div>
     </div>

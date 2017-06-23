@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Email;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Mail\EmailSent;
 use Illuminate\Support\Facades\Mail;
@@ -22,7 +23,9 @@ class EmailsController extends Controller
      */
     public function index()
     {
-        $emails = Email::latest()->where('user_id', Auth::user()->id)->paginate(6);
+        $emails = Email::latest()
+                ->where('user_id', Auth::user()->id)
+                ->paginate(6);
 
         return view('emails.index', compact('emails'));
     }
@@ -48,16 +51,24 @@ class EmailsController extends Controller
         $this->validate($request, [
         'email' => 'required|unique:emails',
         'subject' => 'required',
+        'file' => 'required',
         'message' => 'required',
         ]);
 
-      $email = Email::create([
+        $file=$request->file('file');
+        $fileName = str_slug(Carbon::now()->toDayDateTimeString())
+               ."-".$file->getClientOriginalName();
+        $file->move('email-docs',$fileName);
+
+        $email = Email::create([
+            'doc_path' => $fileName,
             'email' => request('email'),
             'subject' => request('subject'),
             'message' => request('message'),
             'user_id'=> Auth::User()->id
         ]);
         
+
         Mail::to($email)
             ->send(new EmailSent($user, $email));
             return redirect()->back();

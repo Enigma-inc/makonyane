@@ -14,7 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
-        'App\User' => 'App\Policies\ViewUsersPolicy',        
+        'App\User' => 'App\Policies\ViewSingleUserPolicy',        
     ];
 
     /**
@@ -28,6 +28,10 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('view-users', function($user){
             return $user->id == $user->is_admin;
+        });
+
+        Gate::define('view-single-user', function($email){
+            return $email->id == $user->is_admin;
         });
     }
 }
