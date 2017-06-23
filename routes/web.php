@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/', 'EmailsController@index')->name('home');
+Route::get('/users', 'UsersController@index')->name('users');
+
+Route::get('/send-email', 'EmailsController@create')->name('email.create');
+Route::post('/send-email', 'EmailsController@store')->name('email.store');
+
+Route::get('/users/{id}', 'UsersController@show')->name('users.single');
+
+
