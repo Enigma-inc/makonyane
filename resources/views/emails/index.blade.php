@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-12"> 
             <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading btn-flex">
                           <a href="{{ route('email.create') }}"><button class="btn btn-primary hearder margin-left-500">Send Email</button></a>
                     </div>
                     <div class="panel-body">

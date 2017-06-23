@@ -19,8 +19,8 @@
                                     <p align="center"><strong>Email Adress: </strong>{{ $user->email }}</p>
                                     <p><h2 align="center">{{ $user->emails_count }}</h2></p>                                    
                                 </div>
-                                <div class="panel-footer">
-                                    <a href="{{ route('users.single', $user->id) }}"><button class="pull-right btn btn-sm btn-primary">View Sent Emails</button></a>                                
+                                <div class="panel-footer btn-footer-flex">
+                                    <a href="{{ route('users.single', $user->id) }}"><button class="btn btn-sm btn-primary">View Sent Emails</button></a>                                
                                 </div>
                             </div>
                         </div>
