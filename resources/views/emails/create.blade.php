@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" id="request-form" method="POST" action="{{route('email.store')}}">
+                    <form class="form-horizontal" role="form" id="request-form" method="POST" action="{{route('email.store')}}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -35,6 +35,22 @@
                                     <span class="help-block">
                                         <strong>{{ $errors->first('subject') }}</strong>
                                     </span> 
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('file') ? ' has-error' : '' }}">
+                            <label for="file" class="col-md-4 control-label">Document</label>
+
+                            <div class="col-md-6">
+                                <input id="file" type="file" class="form-control" name="file"
+                                  accept="application/pdf,application/msword,
+                                  application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+
+                                @if ($errors->has('file'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('file') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                         </div>
