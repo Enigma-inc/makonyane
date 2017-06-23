@@ -20,7 +20,7 @@
                                     <p><h2 align="center">{{ $user->emails_count }}</h2></p>                                    
                                 </div>
                                 <div class="panel-footer">
-                                    <a href="{{ route('users.single', $user->id) }}"><button class="margin-left-90 btn btn-sm btn-primary">View Sent Emails</button></a>                                
+                                    <a href="{{ route('users.single', $user->id) }}"><button class="pull-right btn btn-sm btn-primary">View Sent Emails</button></a>                                
                                 </div>
                             </div>
                         </div>

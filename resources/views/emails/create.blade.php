@@ -17,10 +17,12 @@
                             <label for="email" class="col-md-4 control-label">Email To</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" required autofocus> @if ($errors->has('name'))
-                                <span class="help-block">
+                                <input id="email" type="text" class="form-control" name="email" required autofocus> 
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
-                                    </span> @endif
+                                    </span> 
+                                @endif
                             </div>
                         </div>
                          
@@ -28,10 +30,12 @@
                             <label for="subject" class="col-md-4 control-label">Subject</label>
 
                             <div class="col-md-6">
-                                <input id="subject" type="text" class="form-control" name="subject" value="{{ old('subject') }}" required autofocus> @if ($errors->has('name'))
-                                <span class="help-block">
+                                <input id="subject" type="text" class="form-control" name="subject" required> 
+                                @if ($errors->has('subject'))
+                                    <span class="help-block">
                                         <strong>{{ $errors->first('subject') }}</strong>
-                                    </span> @endif
+                                    </span> 
+                                @endif
                             </div>
                         </div>
 
@@ -39,10 +43,12 @@
                             <label for="message" class="col-md-4 control-label">Message</label>
 
                             <div class="col-md-6">
-                                <textarea name="message" rows="8" class="form-control" required></textarea> @if ($errors->has('message'))
-                                <span class="help-block">
+                                <textarea name="message" rows="8" class="form-control" required></textarea> 
+                                @if ($errors->has('message'))
+                                    <span class="help-block">
                                         <strong>{{ $errors->first('message') }}</strong>
-                                    </span> @endif
+                                    </span> 
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-4 col-md-offset-4">
