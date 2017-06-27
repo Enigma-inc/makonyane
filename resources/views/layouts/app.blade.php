@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @LaravelSweetAlertCSS
 </head>
 <body>
     <div id="app">
@@ -83,5 +84,6 @@
     <script src="{{ asset('js/jquery.slimscroll.min.js') }}"></script>
 
     @yield('scripts')
+    @LaravelSweetAlertJS
 </body>
 </html>

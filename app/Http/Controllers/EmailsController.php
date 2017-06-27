@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Mail\EmailSent;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use Riazxrazor\LaravelSweetAlert\LaravelSweetAlert;
 
 class EmailsController extends Controller
 {
@@ -67,10 +68,15 @@ class EmailsController extends Controller
             'message' => request('message'),
             'user_id'=> Auth::User()->id
         ]);
-        
 
         Mail::to($email)
             ->send(new EmailSent($user, $email));
+        
+        LaravelSweetAlert::setMessage([
+                        'title' => 'Thank you',
+                         'text'=>'Your email has been successfully sent!',
+                        'type' => 'success'
+                    ]);
             return redirect()->back();
     }
 
