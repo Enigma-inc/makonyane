@@ -17,11 +17,13 @@
                                 </div>
                                 <div class="panel-body user-panel-body">
                                     <p align="center"><strong>Email Adress: </strong>{{ $user->email }}</p>
-                                    <p><h2 align="center">{{ $user->emails_count }}</h2></p>                                    
+                                    <p class="emails-h2" align="center">{{ $user->emails_count }}</p>                                    
                                 </div>
-                                <div class="panel-footer btn-footer-flex">
-                                    <a href="{{ route('users.single', $user->id) }}"><button class="btn btn-sm btn-primary">View Sent Emails</button></a>                                
-                                </div>
+                                @if($user->emails_count > 0)
+                                    <div class="panel-footer btn-footer-flex">
+                                        <a href="{{ route('users.single', $user->id) }}"><button class="btn btn-sm btn-primary">View Sent Emails</button></a>                                
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         @endforeach 

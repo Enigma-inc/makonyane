@@ -17,9 +17,9 @@ class ViewSingleUserPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function view(User $user, User $user)
+    public function view(User $user, User $users)
     {
-            return $user->id == $user->is_admin;
+            return (bool)$user->is_admin;
     }
 
     /**

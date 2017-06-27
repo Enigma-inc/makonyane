@@ -27,11 +27,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('view-users', function($user){
-            return $user->id == $user->is_admin;
-        });
-
-        Gate::define('view-single-user', function($email){
-            return $email->id == $user->is_admin;
+            return (bool) $user->is_admin;
         });
     }
 }
