@@ -20,9 +20,6 @@ class User extends Authenticatable
 
     protected  $guarded =[];
 
-    protected $connection = 'nul-expo';
-
-
     /**
      * The attributes that should be hidden for arrays.
      *
