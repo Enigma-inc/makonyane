@@ -20,7 +20,7 @@ class UsersController extends Controller
                 ->withCount('emails')
                 ->paginate(6);
 
-        return view('users.users', compact('users', 'emails'));
+        return view('users.users')->with(['users'=>$users]);
     }
 
     public function show($userId)
@@ -30,6 +30,6 @@ class UsersController extends Controller
                 ->paginate(6);        
         $user = User::where('id', $userId)->first();
 
-        return view('users.single-user', compact('user', 'emails'));
+        return view('users.single-user')->with(['emails'=>$emails, 'user'=> $user]);
     }
 }

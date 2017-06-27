@@ -28,7 +28,7 @@ class EmailsController extends Controller
                 ->where('user_id', Auth::user()->id)
                 ->paginate(6);
 
-        return view('emails.index', compact('emails'));
+        return view('emails.index')->with(['emails'=>$emails]);
     }
 
     /**

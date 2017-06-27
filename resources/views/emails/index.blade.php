@@ -2,7 +2,7 @@
 @section('content')
 <div class="container" id="app">
     <div class="sec-title">
-        <h3 align="center" class="header margin-top-30">Sent Emails</h3>
+        <h3 align="center" class="header margin-top-30">List Of Emails</h3>
     </div>
     <div class="row">
         <div class="col-md-12"> 
