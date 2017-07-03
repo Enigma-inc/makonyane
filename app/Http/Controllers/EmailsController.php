@@ -10,6 +10,7 @@ use App\Mail\EmailSent;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use Riazxrazor\LaravelSweetAlert\LaravelSweetAlert;
+use App\Http\Requests\SendEmailRequest;
 
 class EmailsController extends Controller
 {
@@ -47,14 +48,9 @@ class EmailsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, User $user)
+    public function store(SendEmailRequest $request, User $user)
     {
-        $this->validate($request, [
-        'email' => 'required|unique:emails',
-        'subject' => 'required',
-        'file' => 'required',
-        'message' => 'required',
-        ]);
+  
 
         $file=$request->file('file');
         $fileName = str_slug(Carbon::now()->toDayDateTimeString())
