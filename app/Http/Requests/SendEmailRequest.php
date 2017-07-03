@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class SendEmailRequest extends FormRequest
 {
