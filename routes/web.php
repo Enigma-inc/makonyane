@@ -17,21 +17,30 @@ Route::get('/', [
     'uses' => 'EmailsController@index',
     'as' => 'home'
     ]);
-Route::get('/users', [
+
+Route::get('/dashboard', [
     'uses' => 'UsersController@index',
-    'as' => 'users'
+    'as' => 'dashboard'
     ]);
+
 Route::get('/send-email', [
     'uses'=> 'EmailsController@create',
     'as' => 'email.create'
     ]);
+
 Route::post('/send-email', [
     'uses' => 'EmailsController@store',
     'as' => 'email.store'
     ]);
+
 Route::get('/users/{id}', [
     'uses' => 'UsersController@show',
     'as' => 'users.single'
     ]);
+
+Route::post('/download/email', [
+        'uses' => 'EmailsController@downloadEmail',
+        'as' => 'email.download'
+    ]);    
 
 

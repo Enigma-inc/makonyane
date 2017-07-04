@@ -13,7 +13,7 @@
                         <div class="col-md-4 margin-top-5">
                             <div class="panel emails-index panel-default">
                                 <div class="panel-heading">
-                                    <div class="header text-center">{{ $user->name }}</div>
+                                    <div class="header text-center"><strong class="username">{{ $user->name }}</strong></div>
                                 </div>
                                 <div class="panel-body user-panel-body">
                                     <p align="center"><strong>Email Adress: </strong>{{ $user->email }}</p>

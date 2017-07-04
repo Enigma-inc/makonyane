@@ -32,6 +32,7 @@ class EmailSent extends Mailable
     public function build()
     {
         return $this->subject($this->email->subject)
-                    ->text('emails.email-sent');
+                    ->text('emails.email-sent')
+                    ->attach(public_path()."/email-docs/".$this->email->doc_path);
     }
 }

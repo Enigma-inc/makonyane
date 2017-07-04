@@ -38,7 +38,7 @@ class LoginController extends Controller
 
     protected function authenticated($request, $user){
         if($user->is_admin){
-            return redirect('/users'); //redirect to admin panel
+            return redirect('/dashboard'); //redirect to admin panel
         }
 
         return redirect('/'); //redirect to standard user homepage

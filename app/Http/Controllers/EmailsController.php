@@ -50,7 +50,8 @@ class EmailsController extends Controller
     public function store(Request $request, User $user)
     {
         $this->validate($request, [
-        'email' => 'required|unique:emails',
+            //|unique:emails
+        'email' => 'required',
         'subject' => 'required',
         'file' => 'required',
         'message' => 'required',
@@ -78,6 +79,23 @@ class EmailsController extends Controller
                         'type' => 'success'
                     ]);
             return redirect()->back();
+    }
+
+    public function downloadEmail()
+    {
+        $fileName = Input::get("file-name");
+        $filePath = public_path() . "/email-docs/" . $fileName;
+
+        if( file_exists($filePath)){
+            $headers = array(
+                'Content-Type: '.Storage::mimeType("/email-docs/" .$fileName),
+            );
+            return Response::download($filePath, $fileName,$headers);
+        }
+        else{
+            return back();
+        }
+
     }
 
     /**
