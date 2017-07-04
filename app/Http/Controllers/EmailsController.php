@@ -76,8 +76,8 @@ class EmailsController extends Controller
             ->send(new EmailSent($user, $email));
         
         LaravelSweetAlert::setMessage([
-                        'title' => 'Thank you',
-                         'text'=>'Your email has been successfully sent!',
+                        'title' => 'Success!',
+                         'text'=>'Your email has been sent.',
                         'type' => 'success'
                     ]);
             return redirect()->back();

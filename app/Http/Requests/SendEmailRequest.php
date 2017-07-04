@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class SendEmailRequest extends FormRequest
 {
@@ -35,7 +34,7 @@ class SendEmailRequest extends FormRequest
     public function messages()
 {
     return [
-        'email.unique' => 'Someone has already sent email to this person',
+        'email.unique' => 'Email to this address has already been sent',
     ];
 }
 }
