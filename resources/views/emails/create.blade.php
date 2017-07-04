@@ -17,7 +17,7 @@
                             <label for="email" class="col-md-4 control-label">Email To</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control" name="email" required autofocus> 
+                                <input id="email" type="text" class="form-control" value="{{ old('email') }}" name="email" required autofocus> 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -30,7 +30,7 @@
                             <label for="subject" class="col-md-4 control-label">Subject</label>
 
                             <div class="col-md-6">
-                                <input id="subject" type="text" class="form-control" name="subject" required> 
+                                <input id="subject" type="text" class="form-control"  value="{{ old('subject') }}" name="subject" required> 
                                 @if ($errors->has('subject'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('subject') }}</strong>

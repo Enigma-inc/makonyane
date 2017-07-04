@@ -40,7 +40,7 @@ class ViewSingleUserPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function update(User $user, User $user)
+    public function update(User $user)
     {
         //
     }
@@ -52,7 +52,7 @@ class ViewSingleUserPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function delete(User $user, User $user)
+    public function delete( User $user)
     {
         //
     }

@@ -55,6 +55,8 @@ class EmailsController extends Controller
         'subject' => 'required',
         'file' => 'required',
         'message' => 'required',
+        ],[
+            'email.unique' => 'Email to this address has already been sent'
         ]);
 
         $file=$request->file('file');
