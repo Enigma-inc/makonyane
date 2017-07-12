@@ -72,8 +72,6 @@ class EmailsController extends Controller
             'user_id'=> Auth::User()->id
         ]);
 
-        Mail::to($email)
-            ->send(new EmailSent($user, $email));
         
         LaravelSweetAlert::setMessage([
                         'title' => 'Success!',

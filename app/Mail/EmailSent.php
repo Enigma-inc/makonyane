@@ -12,16 +12,14 @@ class EmailSent extends Mailable
     use Queueable, SerializesModels;
 
     public $email;
-    public $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user, $email)
+    public function __construct( $email)
     {
         $this->email=$email;
-        $this->user=$user;
     }
 
     /**
