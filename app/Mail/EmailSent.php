@@ -12,6 +12,8 @@ class EmailSent extends Mailable
     use Queueable, SerializesModels;
 
     public $email;
+    protected $appends=['send_count','queue_count'];
+
     /**
      * Create a new message instance.
      *

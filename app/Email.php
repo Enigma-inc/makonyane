@@ -18,4 +18,5 @@ class Email extends Model
     public function getfullDocPathAttribute(){
            return url('/email-docs/'.$this->doc_path);
     }
+ 
 }
