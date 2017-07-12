@@ -51,7 +51,7 @@ class EmailsController extends Controller
     {
         $this->validate($request, [
             //|unique:emails
-        'email' => 'required',
+        'email' => 'required|email',
         'subject' => 'required',
         'file' => 'required',
         'message' => 'required',
