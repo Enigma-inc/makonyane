@@ -27,7 +27,6 @@ class EmailsController extends Controller
         $emails = Email::latest()
                 ->where('user_id', Auth::user()->id)
                 ->paginate(6);
-
         return view('emails.index')->with(['emails'=>$emails]);
     }
 
