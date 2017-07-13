@@ -19,7 +19,7 @@
                                     <p align="center"><strong>Email Adress: </strong>{{ $user->email }}</p>
                                     <p class="emails-h2" align="center">{{ $user->emails_count }}</p>    
                                       <div class="row">
-                                    <div class="col-xs-6"><span class="pull-left"><small>SEND:</small> <strong><h3 style="display: inline-block;">{{$user->send_count}}</h3> </strong></span> </div>
+                                    <div class="col-xs-6"><span class="pull-left"><small>SENT:</small> <strong><h3 style="display: inline-block;">{{$user->send_count}}</h3> </strong></span> </div>
                                     <div class="col-xs-6"><span class="pull-right"><small>IN QUEUE:</small> <strong><h3 style="display: inline-block;">{{$user->queue_count}}</h3> </strong> </span> </div>
                                 </div>                                
                                 </div>
