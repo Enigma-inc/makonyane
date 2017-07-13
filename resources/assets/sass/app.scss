@@ -12,7 +12,7 @@
 @import "contact-form";
 
 .emails-index{
-    height: 220px;
+    height: 256px;
 }
 
 .user-panel-body{
@@ -25,6 +25,7 @@
 }
 
 .btn-footer-flex{
+    margin-top: 7px;
     display: flex;
     justify-content: center;
 }
@@ -37,4 +38,11 @@
 
 .username{
     color: #e13f30;
+}
+
+.dashboard-footer {
+  padding: 10px 15px;
+  border-top: 1px solid #d3e0e9;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
 }

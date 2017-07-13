@@ -39,6 +39,7 @@
                                 <li><a href="{{ route('dashboard') }}">Dashboard</a></li>                                
                             @endif
                         @endif
+                       <li><a href="{{ route('email.create') }}">Send Email</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

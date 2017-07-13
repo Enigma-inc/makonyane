@@ -61,6 +61,8 @@ class EmailsController extends Controller
         $file=$request->file('file');
         $fileName = str_slug(Carbon::now()->toDayDateTimeString())
                ."-".$file->getClientOriginalName();
+        //Storage::disk('local')->put($fileName, 'email-docs');
+
         $file->move('email-docs',$fileName);
 
         $emailObj = Email::create([
@@ -74,7 +76,7 @@ class EmailsController extends Controller
         
         LaravelSweetAlert::setMessage([
                         'title' => 'Success!',
-                         'text'=>'Your email has been sent.',
+                         'text'=>'Your email has been queued for the next sending session.',
                         'type' => 'success'
                     ]);
             return redirect()->back();
