@@ -3,6 +3,10 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmailSent;
+use App\Email;
+
 
 class DispatchEmailCommand extends Command
 {
@@ -37,6 +41,18 @@ class DispatchEmailCommand extends Command
      */
     public function handle()
     {
-        
+          $mailsToSend = Email::where('is_send', '=', false)->get();
+            try {
+                foreach ($mailsToSend as $emailObj) {
+                    
+                    Mail::to($emailObj->email)
+                        ->send(new EmailSent($emailObj));
+                        $emailObj->is_send=true;
+                        $emailObj->save();
+                }
+            } catch (Exception $e) {
+                //Log this Messagess.....
+                echo $e->getMessage();
+            }
     }
 }

@@ -64,7 +64,7 @@ class EmailsController extends Controller
                ."-".$file->getClientOriginalName();
         $file->move('email-docs',$fileName);
 
-        $email = Email::create([
+        $emailObj = Email::create([
             'doc_path' => $fileName,
             'email' => request('email'),
             'subject' => request('subject'),

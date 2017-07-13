@@ -4,9 +4,6 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Illuminate\Support\Facades\Mail;
-use App\Email;
-use App\Mail\EmailSent;
 
 class Kernel extends ConsoleKernel
 {
@@ -16,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\DispatchEmailCommand::class,
     ];
 
     /**
@@ -27,25 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function () {
-          
-
-            $mailsToSend=Email::where('is_send', '=', false)->get();
-        try {
-            foreach ($mailsToSend as $emailObj) {
-
-                 Mail::to($emailObj->email)
-                ->send(new EmailSent($emailObj));
-                $emailObj->is_send=true;
-                $emailObj->save();
-
-
-            }
-        } catch (Exception $e) {
-            //Log this Messagess.....
-            echo $e->getMessage();
-        }
-        })->everyMinute();
+        $schedule->command('email:send');
     }
 
     /**

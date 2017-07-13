@@ -11,15 +11,15 @@ class EmailSent extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $email;
+    public $emailObj;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct( $email)
+    public function __construct($emailObj)
     {
-        $this->email=$email;
+        $this->emailObj = $emailObj;
     }
 
     /**
@@ -30,8 +30,8 @@ class EmailSent extends Mailable
     public function build()
     {
         return $this->from('info@nulistice.org.ls','NULISTICE 2018')
-                    ->subject($this->email->subject)
+                    ->subject($this->emailObj->subject)
                     ->text('emails.email-sent')
-                    ->attach(public_path()."/email-docs/".$this->email->doc_path);
+                    ->attach(public_path()."/email-docs/".$this->emailObj->doc_path);
     }
 }

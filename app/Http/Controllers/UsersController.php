@@ -20,7 +20,7 @@ class UsersController extends Controller
                 ->withCount('emails')
                 ->paginate(6);
 
-        return view('users.users')->with(['users'=>$users]);
+        return view('dashboard')->with(['users'=>$users]);
     }
 
     public function show($userId)
