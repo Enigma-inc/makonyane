@@ -7,14 +7,19 @@ use App\Email;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Mail\EmailSent;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Riazxrazor\LaravelSweetAlert\LaravelSweetAlert;
+
 
 class EmailsController extends Controller
 {
-    public function __construct()
+    protected $disk;
+
+    function __construct()
     {
+        $this->disk = Storage::disk(env('FILE_SYSTEM', 's3'));
         $this->middleware('auth');
     }
     /**
@@ -61,9 +66,14 @@ class EmailsController extends Controller
         $file=$request->file('file');
         $fileName = str_slug(Carbon::now()->toDayDateTimeString())
                ."-".$file->getClientOriginalName();
-        //Storage::disk('local')->put($fileName, 'email-docs');
+        $filePath = public_path()."/email-docs/".$fileName;  
 
-        $file->move('email-docs',$fileName);
+        // Storage::disk('local')
+        //       ->put($filePath, file_get_contents($fileName), 'public');
+
+        //$file->move('email-docs',$fileName);
+
+        $this->disk->put($filePath, file_get_contents($fileName), 'storage');
 
         $emailObj = Email::create([
             'doc_path' => $fileName,
@@ -72,7 +82,6 @@ class EmailsController extends Controller
             'message' => request('message'),
             'user_id'=> Auth::User()->id
         ]);
-
         
         LaravelSweetAlert::setMessage([
                         'title' => 'Success!',

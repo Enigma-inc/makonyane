@@ -7,6 +7,7 @@
 
                     <div class="panel-body">
                         I'm an example component!
+                        <tr v-for="book in books"></tr>
                     </div>
                 </div>
             </div>

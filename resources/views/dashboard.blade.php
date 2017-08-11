@@ -25,7 +25,7 @@
                                     <div class="dashboard-footer">
                                         @if($user->emails_count > 0)
                                         <div class="btn-footer-flex">
-                                            <a href="{{ route('users.single', $user->id) }}"><button class="btn btn-sm btn-primary">View Sent Emails</button></a> 
+                                            <a href="{{ route('users.single', $user->id) }}"><button class="btn btn-sm btn-primary">View Emails</button></a> 
                                         </div>           
                                         @endif                       
                                     </div>
