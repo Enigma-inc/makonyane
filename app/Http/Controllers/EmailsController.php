@@ -53,9 +53,8 @@ class EmailsController extends Controller
      */
     public function store(Request $request, User $user)
     {
-        $this->validate($request, [
-            //|unique:emails
-        'email' => 'required|email',
+        $this->validate($request, [         
+        'email' => 'required|email|unique:emails',
         'subject' => 'required',
         'file' => 'required',
         'message' => 'required',
